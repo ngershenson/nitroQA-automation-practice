@@ -21,16 +21,21 @@ test.describe("BT Support Tickets", () => {
     const btCard = supportTicketPage.locator("h4", {
       hasText: "Business Technology",
     });
-    
+
     await btCard.waitFor();
     await expect(supportTicketPage).toHaveURL("/support/support_centers");
     await btCard.click();
 
-    await supportTicketPage.locator(".pb_selectable_card_kit_enabled", {hasText:  "Issue"}).first().click();
-  
-    await supportTicketPage.locator('[placeholder="The more info you can give us the better."]').fill("Test ticket");
-    await supportTicketPage.locator('button', {hasText: "Send my request"}).click();
-    
-    
+    await supportTicketPage
+      .locator(".pb_selectable_card_kit_enabled", { hasText: "Issue" })
+      .first()
+      .click();
+
+    await supportTicketPage
+      .locator('[placeholder="The more info you can give us the better."]')
+      .fill("Test ticket");
+    await supportTicketPage
+      .locator("button", { hasText: "Send my request" })
+      .click();
   });
 });
